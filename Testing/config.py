@@ -1,0 +1,5 @@
+HOSTNAME = 'localhost'
+USERNAME = 'postgres'
+PASSWORD = 'Mycollege1!'
+DATABASE = 'Hackathon1'
+PORT = '5432'

@@ -1,10 +1,10 @@
-from config import api_key
+from Testing.config import api_key
 
 from googleapiclient.discovery import build
 
 
 # ID of the Google Sheet you want to access
-sheet_id = '1rCkekA1zHOJH2Jzi0Uo27RaG8EFHfiw2WqOAYTFkPuk'  # Replace with your Google Sheet ID
+sheet_id = '1rCkekA1zHOJH2Jzi0Uo27RaG8EFHfiw2WqOAYTFkPuk'  
 
 # Range of cells to retrieve data from (e.g., A1:B10)
 range_name = 'Sheet1!A5:C'  # Replace with your range
@@ -22,15 +22,12 @@ result = service.spreadsheets().values().get(
 values = result.get('values', [])
 
 # Print retrieved values
-data_list = []
+
 if not values:
     print('No data found.')
 else:
     print('Data:')
     for row in values:
-        # print(row)
-        data_list.append(row)
-
-print(f' this is the data it worked {data_list}')
+        print(row)
 
 
