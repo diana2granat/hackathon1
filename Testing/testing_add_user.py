@@ -1,4 +1,4 @@
-import config
+import Testing.test_config as test_config
 import psycopg2
 
 
@@ -10,11 +10,11 @@ class addUser:
         self.phone = phone
         self.city = city 
         self.conn = psycopg2.connect(
-            dbname = config.DATABASE,
-            user = config.USERNAME, 
-            password = config.PASSWORD,
-            host = config.HOSTNAME, 
-            port = config.PORT
+            dbname = test_config.DATABASE,
+            user = test_config.USERNAME, 
+            password = test_config.PASSWORD,
+            host = test_config.HOSTNAME, 
+            port = test_config.PORT
         )
     def add_user_to_db(self):
         cursor = self.conn.cursor()
@@ -45,11 +45,11 @@ INSERT INTO users(first_name, last_name, email, phone, city) Values (%s,%s,%s,%s
     #     return user_info_list
     def get_user_info(self):
         conn = psycopg2.connect(
-            dbname=config.DATABASE,
-            user=config.USERNAME, 
-            password=config.PASSWORD,
-            host=config.HOSTNAME, 
-            port=config.PORT
+            dbname=test_config.DATABASE,
+            user=test_config.USERNAME, 
+            password=test_config.PASSWORD,
+            host=test_config.HOSTNAME, 
+            port=test_config.PORT
         )
         cursor = conn.cursor()
         query = """

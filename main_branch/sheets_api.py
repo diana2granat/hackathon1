@@ -1,4 +1,4 @@
-from Testing.config import api_key
+from Testing.test_config import api_key
 
 from googleapiclient.discovery import build
 

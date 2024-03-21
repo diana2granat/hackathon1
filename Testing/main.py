@@ -1,5 +1,5 @@
 import psycopg2
-from config_copy import api_key
+from Testing.test_config_copy import api_key
 from testing_add_user import addUser
 import re 
 from sheets_api_testing import get_google_sheet_values
