@@ -22,9 +22,15 @@ result = service.spreadsheets().values().get(
 values = result.get('values', [])
 
 # Print retrieved values
+data_list = []
 if not values:
     print('No data found.')
 else:
     print('Data:')
     for row in values:
-        print(row)
+        # print(row)
+        data_list.append(row)
+
+print(f' this is the data it worked {data_list}')
+
+

@@ -1,0 +1,10 @@
+- create a database in postgresql (Hackathon) (done)
+- create a table of users (id, email, phone, city, timestamp of user input) (done)
+- table records (id, fk_user_id, orginization they choose, description) (done)
+- function 1 that asks users for info to add to table
+- function 2 will use apis to grab info from table
+- function 3 take info that user gave that will return the orginization(s) and description for the city they gave
+- function 4 will take the city that the user gave and sort through the google sheet info to match them returning the descirption and the name of it 
+
+
+-Extra Credit: function that will find volunteer info in the database
