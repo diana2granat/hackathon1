@@ -1,5 +1,6 @@
 import psycopg2
-from Testing.test_config_copy import api_key
+import test_config as test_config
+from test_config_copy import api_key
 from testing_add_user import addUser
 import re 
 from sheets_api_testing import get_google_sheet_values
@@ -32,12 +33,6 @@ def get_user():
     new_user.add_user_to_db()
     user_info = new_user.get_user_info()
 
-    # print(global_user_info)
-
-    # if global_user_info is None:
-    #     print("User info is not available. Please run show_user_menu() first.")
-    #     return
-
     values = get_google_sheet_values()
     matching_opportunities = []
     user_city = user_info[5]
@@ -58,6 +53,24 @@ def get_user():
                 if 1 <= selected_index <= len(matching_opportunities): #checks if user selected greater than 1 and less than the amount of choices
                     selected_opportunity = matching_opportunities[selected_index - 1]
                     print(f"You selected: {selected_opportunity}")
+                    
+                    conn = psycopg2.connect(
+                        dbname=test_config.DATABASE,
+                        user=test_config.USERNAME, 
+                        password=test_config.PASSWORD,
+                        host=test_config.HOSTNAME, 
+                        port=test_config.PORT
+                    )
+                    cursor = conn.cursor()
+                    
+                    # Insert selected opportunity name into the records table
+                    opportunity_name = selected_opportunity[0]
+                    query ='''INSERT INTO records (user_id, organization_chose) VALUES (%s, %s);''' #modify this querry
+                    cursor.execute(query, (user_info[0], opportunity_name))
+                    
+                    conn.commit()
+                    conn.close()
+                      
                     break
                 else:
                     print("Invalid input. Please enter a valid number.")

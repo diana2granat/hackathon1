@@ -1,4 +1,4 @@
-import Testing.test_config as test_config
+import test_config as test_config
 import psycopg2
 
 
@@ -25,24 +25,6 @@ INSERT INTO users(first_name, last_name, email, phone, city) Values (%s,%s,%s,%s
         cursor.close()
         self.conn.close()
     
-
-    # def get_user_info(self):
-    #     conn = psycopg2.connect(
-    #         dbname=config.DATABASE,
-    #         user=config.USERNAME, 
-    #         password=config.PASSWORD,
-    #         host=config.HOSTNAME, 
-    #         port=config.PORT
-    #     )
-    #     cursor = conn.cursor()
-    #     query = """
-    #     SELECT * FROM users
-    #     """
-    #     cursor.execute(query)
-    #     user_info_list = cursor.fetchall()
-    #     cursor.close()
-    #     conn.close()
-    #     return user_info_list
     def get_user_info(self):
         conn = psycopg2.connect(
             dbname=test_config.DATABASE,
@@ -65,7 +47,9 @@ INSERT INTO users(first_name, last_name, email, phone, city) Values (%s,%s,%s,%s
         return user_info_list
 
 
+
 def show_user_menu():
+       '''for testing'''
        user_input = input('This program is used to help you find volunteering. Please enter your first name, last name, email, phone, and city separated by commas (e.g., "John, Doe, johndoe@gmail.com, 0555555555, Jerusalem"): ')
        user_data = user_input.split(', ')
     
