@@ -55,7 +55,7 @@ def get_user():
         while True:
             try:
                 selected_index = int(input("Please select the number of the opportunity you want to choose: "))
-                if 1 <= selected_index <= len(matching_opportunities):
+                if 1 <= selected_index <= len(matching_opportunities): #checks if user selected greater than 1 and less than the amount of choices
                     selected_opportunity = matching_opportunities[selected_index - 1]
                     print(f"You selected: {selected_opportunity}")
                     break
