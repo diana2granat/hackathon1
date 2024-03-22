@@ -72,6 +72,7 @@ def get_user():
                     # print(type(opportunity_name))
                     # print(type(opportunity_description))
                     # print(type(user_info[0]))
+                    #blablabla
 
                     query ='''INSERT INTO records (user_id, organization_chosen, description) VALUES(%s, %s, %s)''' #modify this querry
                     # query ='''INSERT INTO records (user_id, organization_chose) VALUES ({user_info[0]}, {opportunity_name});''' #modify this querry
