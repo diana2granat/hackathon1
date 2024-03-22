@@ -5,7 +5,7 @@ from testing_add_user import addUser
 import re 
 from sheets_api_testing import get_google_sheet_values
 
-# global_user_info = None  # Initialize global_user_info
+
 
 def get_valid_input(prompt, pattern):
     while True:
@@ -32,6 +32,8 @@ def get_user():
     new_user = addUser(first_name, last_name, email, phone, city)
     new_user.add_user_to_db()
     user_info = new_user.get_user_info()
+
+    # print(user_info)
 
     values = get_google_sheet_values()
     matching_opportunities = []
@@ -65,10 +67,18 @@ def get_user():
                     
                     # Insert selected opportunity name into the records table
                     opportunity_name = selected_opportunity[0]
-                    query ='''INSERT INTO records (user_id, organization_chose) VALUES (%s, %s);''' #modify this querry
-                    cursor.execute(query, (user_info[0], opportunity_name))
+                    opportunity_description = selected_opportunity[2]
+
+                    # print(type(opportunity_name))
+                    # print(type(opportunity_description))
+                    # print(type(user_info[0]))
+
+                    query ='''INSERT INTO records (user_id, organization_chosen, description) VALUES(%s, %s, %s)''' #modify this querry
+                    # query ='''INSERT INTO records (user_id, organization_chose) VALUES ({user_info[0]}, {opportunity_name});''' #modify this querry
+                    cursor.execute(query, (user_info[0], opportunity_name, opportunity_description))
                     
                     conn.commit()
+                    cursor.close()
                     conn.close()
                       
                     break
