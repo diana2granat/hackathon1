@@ -48,20 +48,5 @@ INSERT INTO users(first_name, last_name, email, phone, city) Values (%s,%s,%s,%s
 
 
 
-# def show_user_menu():
-#        '''for testing'''
-#        user_input = input('This program is used to help you find volunteering. Please enter your first name, last name, email, phone, and city separated by commas (e.g., "John, Doe, johndoe@gmail.com, 0555555555, Jerusalem"): ')
-#        user_data = user_input.split(', ')
-    
-#        if len(user_data) != 5:
-#         print("Invalid input. Please provide all the required information separated by commas.")
-#         return
 
-#        first_name, last_name, email, phone, city = user_data
-    
-#        new_user = addUser(first_name, last_name, email, phone, city)
-#        new_user.add_user_to_db()
-       
-
-# show_user_menu()
 

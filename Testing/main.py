@@ -4,6 +4,7 @@ from test_config_copy import api_key
 from testing_add_user import addUser
 import re 
 from sheets_api_testing import get_google_sheet_values
+import string 
 
 
 
@@ -38,9 +39,10 @@ def get_user():
     values = get_google_sheet_values()
     matching_opportunities = []
     user_city = user_info[5]
+    correct_case_city = string.capwords(user_city)
 
     for value in values:
-        if value[1] == user_city:
+        if value[1] == correct_case_city:
             matching_opportunities.append(value)
 
     if matching_opportunities:
@@ -69,12 +71,8 @@ def get_user():
                     opportunity_name = selected_opportunity[0]
                     opportunity_description = selected_opportunity[2]
 
-                    # print(type(opportunity_name))
-                    # print(type(opportunity_description))
-                    # print(type(user_info[0]))
 
                     query ='''INSERT INTO records (user_id, organization_chosen, description) VALUES(%s, %s, %s)''' #modify this querry
-                    # query ='''INSERT INTO records (user_id, organization_chose) VALUES ({user_info[0]}, {opportunity_name});''' #modify this querry
                     cursor.execute(query, (user_info[0], opportunity_name, opportunity_description))
                     
                     conn.commit()
