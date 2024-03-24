@@ -1,4 +1,4 @@
-import Testing.test_config as test_config
+import Testing.config_file as config_file
 import psycopg2
 
 opportunities = [['tomer farm', 'Jerusalem', 'pick oranges on tomers farm'], ['tel aviv farm', 'Tel Aviv', 'pick oranges in tel aviv']]
