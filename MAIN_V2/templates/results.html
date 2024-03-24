@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Opportunities</title>
+</head>
+<body>
+    <h1>Matching Opportunities</h1>
+    <form method="POST" action="{{ url_for('record_selection') }}">
+        <input type="hidden" name="user_id" value="{{ user_info[0] }}">
+        {% for opportunity in opportunities %}
+        <input type="hidden" name="opportunity_name" value="{{ opportunity[0] }}">
+        <input type="hidden" name="opportunity_description" value="{{ opportunity[2] }}">
+        <button type="submit" name="selected_opportunity" value="{{ loop.index }}">Select {{ opportunity[0] }}</button>
+        <p>{{ opportunity[2] }}</p>
+        <hr>
+        {% endfor %}
+    </form>
+</body>
+</html>
