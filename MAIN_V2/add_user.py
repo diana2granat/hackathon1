@@ -1,4 +1,4 @@
-import Testing.config_file as config_file
+import config_file as config_file
 import psycopg2
 
 

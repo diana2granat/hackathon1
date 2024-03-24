@@ -1,9 +1,9 @@
 import psycopg2
-import MAIN_V2.config_file as config_file
-from MAIN_V2.config_key import api_key
-from MAIN_V2.add_user import addUser
+import config_file as config_file
+from config_key import api_key
+from add_user import addUser
 import re 
-from MAIN_V2.sheets_api import get_google_sheet_values
+from sheets_api import get_google_sheet_values
 import string 
 
 
