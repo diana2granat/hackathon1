@@ -26,7 +26,7 @@ def index():
         phone = request.form['phone']
         city = request.form['city']
 
-        # Validate input using regex patterns above
+        # Validate input using regex patterns
         error_messages = []
         if not re.match(name_pattern, first_name):
             error_messages.append("First name: letters only")
