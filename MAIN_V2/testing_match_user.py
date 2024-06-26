@@ -1,6 +1,8 @@
 import Testing.config_file as config_file
 import psycopg2
 
+'''THIS IS FOR TESTING NOT ACTUALLY USED IN MAIN PROGRAM'''
+
 opportunities = [['tomer farm', 'Jerusalem', 'pick oranges on tomers farm'], ['tel aviv farm', 'Tel Aviv', 'pick oranges in tel aviv']]
 user = ['Jeremy','Gross', '0555555555', 'email@email.com', 'Jerusalem']
 
